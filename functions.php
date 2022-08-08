@@ -37,10 +37,10 @@ if ( ! isset( $content_width ) ) {
  *
  * @since v1.0
  */
-if ( ! function_exists( 'a_wordpress_theme_setup_theme' ) ) :
-	function a_wordpress_theme_setup_theme() {
+if ( ! function_exists( 'trotzky22_setup_theme' ) ) :
+	function trotzky22_setup_theme() {
 		// Make theme available for translation: Translations can be filed in the /languages/ directory.
-		load_theme_textdomain( 'a-wordpress-theme', __DIR__ . '/languages' );
+		load_theme_textdomain( 'trotzky22', __DIR__ . '/languages' );
 
 		// Theme Support.
 		add_theme_support( 'title-tag' );
@@ -77,7 +77,7 @@ if ( ! function_exists( 'a_wordpress_theme_setup_theme' ) ) :
 		// Custom CSS-Styles of Wordpress Gallery.
 		add_filter( 'use_default_gallery_style', '__return_false' );
 	}
-	add_action( 'after_setup_theme', 'a_wordpress_theme_setup_theme' );
+	add_action( 'after_setup_theme', 'trotzky22_setup_theme' );
 
 	// Disable Block Directory: https://github.com/WordPress/gutenberg/blob/trunk/docs/reference-guides/filters/editor-filters.md#block-directory
 	remove_action( 'enqueue_block_editor_assets', 'wp_enqueue_editor_block_directory_assets' );
@@ -109,8 +109,8 @@ endif;
  *
  * @since v1.0
  */
-if ( ! function_exists( 'a_wordpress_theme_add_user_fields' ) ) :
-	function a_wordpress_theme_add_user_fields( $fields ) {
+if ( ! function_exists( 'trotzky22_add_user_fields' ) ) :
+	function trotzky22_add_user_fields( $fields ) {
 		// Add new fields.
 		$fields['facebook_profile'] = 'Facebook URL';
 		$fields['twitter_profile']  = 'Twitter URL';
@@ -120,7 +120,7 @@ if ( ! function_exists( 'a_wordpress_theme_add_user_fields' ) ) :
 
 		return $fields;
 	}
-	add_filter( 'user_contactmethods', 'a_wordpress_theme_add_user_fields' ); // get_user_meta( $user->ID, 'facebook_profile', true );
+	add_filter( 'user_contactmethods', 'trotzky22_add_user_fields' ); // get_user_meta( $user->ID, 'facebook_profile', true );
 endif;
 
 
@@ -143,14 +143,14 @@ function is_blog() {
  *
  * @since v1.0
  */
-function a_wordpress_theme_filter_media_comment_status( $open, $post_id = null ) {
+function trotzky22_filter_media_comment_status( $open, $post_id = null ) {
 	$media_post = get_post( $post_id );
 	if ( 'attachment' === $media_post->post_type ) {
 		return false;
 	}
 	return $open;
 }
-add_filter( 'comments_open', 'a_wordpress_theme_filter_media_comment_status', 10, 2 );
+add_filter( 'comments_open', 'trotzky22_filter_media_comment_status', 10, 2 );
 
 
 /**
@@ -158,15 +158,15 @@ add_filter( 'comments_open', 'a_wordpress_theme_filter_media_comment_status', 10
  *
  * @since v1.0
  */
-function a_wordpress_theme_custom_edit_post_link( $output ) {
+function trotzky22_custom_edit_post_link( $output ) {
 	return str_replace( 'class="post-edit-link"', 'class="post-edit-link badge badge-secondary"', $output );
 }
-add_filter( 'edit_post_link', 'a_wordpress_theme_custom_edit_post_link' );
+add_filter( 'edit_post_link', 'trotzky22_custom_edit_post_link' );
 
-function a_wordpress_theme_custom_edit_comment_link( $output ) {
+function trotzky22_custom_edit_comment_link( $output ) {
 	return str_replace( 'class="comment-edit-link"', 'class="comment-edit-link badge badge-secondary"', $output );
 }
-add_filter( 'edit_comment_link', 'a_wordpress_theme_custom_edit_comment_link' );
+add_filter( 'edit_comment_link', 'trotzky22_custom_edit_comment_link' );
 
 
 /**
@@ -174,26 +174,26 @@ add_filter( 'edit_comment_link', 'a_wordpress_theme_custom_edit_comment_link' );
  *
  * @since v1.0
  */
-function a_wordpress_theme_oembed_filter( $html ) {
+function trotzky22_oembed_filter( $html ) {
 	return '<div class="ratio ratio-16x9">' . $html . '</div>';
 }
-add_filter( 'embed_oembed_html', 'a_wordpress_theme_oembed_filter', 10, 4 );
+add_filter( 'embed_oembed_html', 'trotzky22_oembed_filter', 10, 4 );
 
 
-if ( ! function_exists( 'a_wordpress_theme_content_nav' ) ) :
+if ( ! function_exists( 'trotzky22_content_nav' ) ) :
 	/**
 	 * Display a navigation to next/previous pages when applicable.
 	 *
 	 * @since v1.0
 	 */
-	function a_wordpress_theme_content_nav( $nav_id ) {
+	function trotzky22_content_nav( $nav_id ) {
 		global $wp_query;
 
 		if ( $wp_query->max_num_pages > 1 ) :
 	?>
 			<div id="<?php echo esc_attr( $nav_id ); ?>" class="d-flex mb-4 justify-content-between">
-				<div><?php next_posts_link( '<span aria-hidden="true">&larr;</span> ' . esc_html__( 'Older posts', 'a-wordpress-theme' ) ); ?></div>
-				<div><?php previous_posts_link( esc_html__( 'Newer posts', 'a-wordpress-theme' ) . ' <span aria-hidden="true">&rarr;</span>' ); ?></div>
+				<div><?php next_posts_link( '<span aria-hidden="true">&larr;</span> ' . esc_html__( 'Older posts', 'trotzky22' ) ); ?></div>
+				<div><?php previous_posts_link( esc_html__( 'Newer posts', 'trotzky22' ) . ' <span aria-hidden="true">&rarr;</span>' ); ?></div>
 			</div><!-- /.d-flex -->
 	<?php
 		else :
@@ -215,7 +215,7 @@ endif;
  *
  * @since v1.0
  */
-function a_wordpress_theme_widgets_init() {
+function trotzky22_widgets_init() {
 	// Area 1.
 	register_sidebar(
 		array(
@@ -252,24 +252,24 @@ function a_wordpress_theme_widgets_init() {
 		)
 	);
 }
-add_action( 'widgets_init', 'a_wordpress_theme_widgets_init' );
+add_action( 'widgets_init', 'trotzky22_widgets_init' );
 
 
-if ( ! function_exists( 'a_wordpress_theme_article_posted_on' ) ) :
+if ( ! function_exists( 'trotzky22_article_posted_on' ) ) :
 	/**
 	 * "Theme posted on" pattern.
 	 *
 	 * @since v1.0
 	 */
-	function a_wordpress_theme_article_posted_on() {
+	function trotzky22_article_posted_on() {
 		printf(
-			wp_kses_post( __( '<span class="sep">Posted on </span><a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s">%4$s</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author-meta vcard"><a class="url fn n" href="%5$s" title="%6$s" rel="author">%7$s</a></span></span>', 'a-wordpress-theme' ) ),
+			wp_kses_post( __( '<span class="sep">Posted on </span><a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s">%4$s</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author-meta vcard"><a class="url fn n" href="%5$s" title="%6$s" rel="author">%7$s</a></span></span>', 'trotzky22' ) ),
 			esc_url( get_the_permalink() ),
 			esc_attr( get_the_date() . ' - ' . get_the_time() ),
 			esc_attr( get_the_date( 'c' ) ),
 			esc_html( get_the_date() . ' - ' . get_the_time() ),
 			esc_url( get_author_posts_url( (int) get_the_author_meta( 'ID' ) ) ),
-			sprintf( esc_attr__( 'View all posts by %s', 'a-wordpress-theme' ), get_the_author() ),
+			sprintf( esc_attr__( 'View all posts by %s', 'trotzky22' ), get_the_author() ),
 			get_the_author()
 		);
 	}
@@ -281,51 +281,51 @@ endif;
  *
  * @since v1.0
  */
-function a_wordpress_theme_password_form() {
+function trotzky22_password_form() {
 	global $post;
 	$label = 'pwbox-' . ( empty( $post->ID ) ? rand() : $post->ID );
 
 	$output = '<div class="row">';
 		$output .= '<form action="' . esc_url( site_url( 'wp-login.php?action=postpass', 'login_post' ) ) . '" method="post">';
-		$output .= '<h4 class="col-md-12 alert alert-warning">' . esc_html__( 'This content is password protected. To view it please enter your password below.', 'a-wordpress-theme' ) . '</h4>';
+		$output .= '<h4 class="col-md-12 alert alert-warning">' . esc_html__( 'This content is password protected. To view it please enter your password below.', 'trotzky22' ) . '</h4>';
 			$output .= '<div class="col-md-6">';
 				$output .= '<div class="input-group">';
-					$output .= '<input type="password" name="post_password" id="' . esc_attr( $label ) . '" placeholder="' . esc_attr__( 'Password', 'a-wordpress-theme' ) . '" class="form-control" />';
-					$output .= '<div class="input-group-append"><input type="submit" name="submit" class="btn btn-primary" value="' . esc_attr__( 'Submit', 'a-wordpress-theme' ) . '" /></div>';
+					$output .= '<input type="password" name="post_password" id="' . esc_attr( $label ) . '" placeholder="' . esc_attr__( 'Password', 'trotzky22' ) . '" class="form-control" />';
+					$output .= '<div class="input-group-append"><input type="submit" name="submit" class="btn btn-primary" value="' . esc_attr__( 'Submit', 'trotzky22' ) . '" /></div>';
 				$output .= '</div><!-- /.input-group -->';
 			$output .= '</div><!-- /.col -->';
 		$output .= '</form>';
 	$output .= '</div><!-- /.row -->';
 	return $output;
 }
-add_filter( 'the_password_form', 'a_wordpress_theme_password_form' );
+add_filter( 'the_password_form', 'trotzky22_password_form' );
 
 
-if ( ! function_exists( 'a_wordpress_theme_comment' ) ) :
+if ( ! function_exists( 'trotzky22_comment' ) ) :
 	/**
 	 * Style Reply link.
 	 *
 	 * @since v1.0
 	 */
-	function a_wordpress_theme_replace_reply_link_class( $class ) {
+	function trotzky22_replace_reply_link_class( $class ) {
 		return str_replace( "class='comment-reply-link", "class='comment-reply-link btn btn-outline-secondary", $class );
 	}
-	add_filter( 'comment_reply_link', 'a_wordpress_theme_replace_reply_link_class' );
+	add_filter( 'comment_reply_link', 'trotzky22_replace_reply_link_class' );
 
 	/**
 	 * Template for comments and pingbacks:
-	 * add function to comments.php ... wp_list_comments( array( 'callback' => 'a_wordpress_theme_comment' ) );
+	 * add function to comments.php ... wp_list_comments( array( 'callback' => 'trotzky22_comment' ) );
 	 *
 	 * @since v1.0
 	 */
-	function a_wordpress_theme_comment( $comment, $args, $depth ) {
+	function trotzky22_comment( $comment, $args, $depth ) {
 		$GLOBALS['comment'] = $comment;
 		switch ( $comment->comment_type ) :
 			case 'pingback':
 			case 'trackback':
 	?>
 		<li class="post pingback">
-			<p><?php esc_html_e( 'Pingback:', 'a-wordpress-theme' ); ?> <?php comment_author_link(); ?><?php edit_comment_link( esc_html__( 'Edit', 'a-wordpress-theme' ), '<span class="edit-link">', '</span>' ); ?></p>
+			<p><?php esc_html_e( 'Pingback:', 'trotzky22' ); ?> <?php comment_author_link(); ?><?php edit_comment_link( esc_html__( 'Edit', 'trotzky22' ), '<span class="edit-link">', '</span>' ); ?></p>
 	<?php
 				break;
 			default:
@@ -340,22 +340,22 @@ if ( ! function_exists( 'a_wordpress_theme_comment' ) ) :
 
 							/* translators: 1: comment author, 2: date and time */
 							printf(
-								wp_kses_post( __( '%1$s, %2$s', 'a-wordpress-theme' ) ),
+								wp_kses_post( __( '%1$s, %2$s', 'trotzky22' ) ),
 								sprintf( '<span class="fn">%s</span>', get_comment_author_link() ),
 								sprintf( '<a href="%1$s"><time datetime="%2$s">%3$s</time></a>',
 									esc_url( get_comment_link( $comment->comment_ID ) ),
 									get_comment_time( 'c' ),
 									/* translators: 1: date, 2: time */
-									sprintf( esc_html__( '%1$s ago', 'a-wordpress-theme' ), human_time_diff( (int) get_comment_time( 'U' ), current_time( 'timestamp' ) ) )
+									sprintf( esc_html__( '%1$s ago', 'trotzky22' ), human_time_diff( (int) get_comment_time( 'U' ), current_time( 'timestamp' ) ) )
 								)
 							);
 
-							edit_comment_link( esc_html__( 'Edit', 'a-wordpress-theme' ), '<span class="edit-link">', '</span>' );
+							edit_comment_link( esc_html__( 'Edit', 'trotzky22' ), '<span class="edit-link">', '</span>' );
 						?>
 					</div><!-- .comment-author .vcard -->
 
 					<?php if ( '0' === $comment->comment_approved ) : ?>
-						<em class="comment-awaiting-moderation"><?php esc_html_e( 'Your comment is awaiting moderation.', 'a-wordpress-theme' ); ?></em>
+						<em class="comment-awaiting-moderation"><?php esc_html_e( 'Your comment is awaiting moderation.', 'trotzky22' ); ?></em>
 						<br />
 					<?php endif; ?>
 				</footer>
@@ -368,7 +368,7 @@ if ( ! function_exists( 'a_wordpress_theme_comment' ) ) :
 							array_merge(
 								$args,
 								array(
-									'reply_text' => esc_html__( 'Reply', 'a-wordpress-theme' ) . ' <span>&darr;</span>',
+									'reply_text' => esc_html__( 'Reply', 'trotzky22' ) . ' <span>&darr;</span>',
 									'depth'      => $depth,
 									'max_depth'  => $args['max_depth'],
 								)
@@ -389,7 +389,7 @@ if ( ! function_exists( 'a_wordpress_theme_comment' ) ) :
 	 * @since v1.1: Added 'submit_button' and 'submit_field'
 	 * @since v2.0.2: Added '$consent' and 'cookies'
 	 */
-	function a_wordpress_theme_custom_commentform( $args = array(), $post_id = null ) {
+	function trotzky22_custom_commentform( $args = array(), $post_id = null ) {
 		if ( null === $post_id ) {
 			$post_id = get_the_ID();
 		}
@@ -405,40 +405,40 @@ if ( ! function_exists( 'a_wordpress_theme_comment' ) ) :
 		$consent  = ( empty( $commenter['comment_author_email'] ) ? '' : ' checked="checked"' );
 		$fields   = array(
 			'author'  => '<div class="form-floating mb-3">
-							<input type="text" id="author" name="author" class="form-control" value="' . esc_attr( $commenter['comment_author'] ) . '" placeholder="' . esc_html__( 'Name', 'a-wordpress-theme' ) . ( $req ? '*' : '' ) . '"' . $aria_req . ' />
-							<label for="author">' . esc_html__( 'Name', 'a-wordpress-theme' ) . ( $req ? '*' : '' ) . '</label>
+							<input type="text" id="author" name="author" class="form-control" value="' . esc_attr( $commenter['comment_author'] ) . '" placeholder="' . esc_html__( 'Name', 'trotzky22' ) . ( $req ? '*' : '' ) . '"' . $aria_req . ' />
+							<label for="author">' . esc_html__( 'Name', 'trotzky22' ) . ( $req ? '*' : '' ) . '</label>
 						</div>',
 			'email'   => '<div class="form-floating mb-3">
-							<input type="email" id="email" name="email" class="form-control" value="' . esc_attr( $commenter['comment_author_email'] ) . '" placeholder="' . esc_html__( 'Email', 'a-wordpress-theme' ) . ( $req ? '*' : '' ) . '"' . $aria_req . ' />
-							<label for="email">' . esc_html__( 'Email', 'a-wordpress-theme' ) . ( $req ? '*' : '' ) . '</label>
+							<input type="email" id="email" name="email" class="form-control" value="' . esc_attr( $commenter['comment_author_email'] ) . '" placeholder="' . esc_html__( 'Email', 'trotzky22' ) . ( $req ? '*' : '' ) . '"' . $aria_req . ' />
+							<label for="email">' . esc_html__( 'Email', 'trotzky22' ) . ( $req ? '*' : '' ) . '</label>
 						</div>',
 			'url'     => '',
 			'cookies' => '<p class="form-check mb-3 comment-form-cookies-consent">
 							<input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" class="form-check-input" type="checkbox" value="yes"' . $consent . ' />
-							<label class="form-check-label" for="wp-comment-cookies-consent">' . esc_html__( 'Save my name, email, and website in this browser for the next time I comment.', 'a-wordpress-theme' ) . '</label>
+							<label class="form-check-label" for="wp-comment-cookies-consent">' . esc_html__( 'Save my name, email, and website in this browser for the next time I comment.', 'trotzky22' ) . '</label>
 						</p>',
 		);
 
 		$defaults = array(
 			'fields'               => apply_filters( 'comment_form_default_fields', $fields ),
 			'comment_field'        => '<div class="form-floating mb-3">
-											<textarea id="comment" name="comment" class="form-control" aria-required="true" required placeholder="' . esc_attr__( 'Comment', 'a-wordpress-theme' ) . ( $req ? '*' : '' ) . '"></textarea>
-											<label for="comment">' . esc_html__( 'Comment', 'a-wordpress-theme' ) . '</label>
+											<textarea id="comment" name="comment" class="form-control" aria-required="true" required placeholder="' . esc_attr__( 'Comment', 'trotzky22' ) . ( $req ? '*' : '' ) . '"></textarea>
+											<label for="comment">' . esc_html__( 'Comment', 'trotzky22' ) . '</label>
 										</div>',
 			/** This filter is documented in wp-includes/link-template.php */
-			'must_log_in'          => '<p class="must-log-in">' . sprintf( wp_kses_post( __( 'You must be <a href="%s">logged in</a> to post a comment.', 'a-wordpress-theme' ) ), wp_login_url( apply_filters( 'the_permalink', get_the_permalink( get_the_ID() ) ) ) ) . '</p>',
+			'must_log_in'          => '<p class="must-log-in">' . sprintf( wp_kses_post( __( 'You must be <a href="%s">logged in</a> to post a comment.', 'trotzky22' ) ), wp_login_url( apply_filters( 'the_permalink', get_the_permalink( get_the_ID() ) ) ) ) . '</p>',
 			/** This filter is documented in wp-includes/link-template.php */
-			'logged_in_as'         => '<p class="logged-in-as">' . sprintf( wp_kses_post( __( 'Logged in as <a href="%1$s">%2$s</a>. <a href="%3$s" title="Log out of this account">Log out?</a>', 'a-wordpress-theme' ) ), get_edit_user_link(), $user->display_name, wp_logout_url( apply_filters( 'the_permalink', get_the_permalink( get_the_ID() ) ) ) ) . '</p>',
-			'comment_notes_before' => '<p class="small comment-notes">' . esc_html__( 'Your Email address will not be published.', 'a-wordpress-theme' ) . '</p>',
+			'logged_in_as'         => '<p class="logged-in-as">' . sprintf( wp_kses_post( __( 'Logged in as <a href="%1$s">%2$s</a>. <a href="%3$s" title="Log out of this account">Log out?</a>', 'trotzky22' ) ), get_edit_user_link(), $user->display_name, wp_logout_url( apply_filters( 'the_permalink', get_the_permalink( get_the_ID() ) ) ) ) . '</p>',
+			'comment_notes_before' => '<p class="small comment-notes">' . esc_html__( 'Your Email address will not be published.', 'trotzky22' ) . '</p>',
 			'comment_notes_after'  => '',
 			'id_form'              => 'commentform',
 			'id_submit'            => 'submit',
 			'class_submit'         => 'btn btn-primary',
 			'name_submit'          => 'submit',
 			'title_reply'          => '',
-			'title_reply_to'       => esc_html__( 'Leave a Reply to %s', 'a-wordpress-theme' ),
-			'cancel_reply_link'    => esc_html__( 'Cancel reply', 'a-wordpress-theme' ),
-			'label_submit'         => esc_html__( 'Post Comment', 'a-wordpress-theme' ),
+			'title_reply_to'       => esc_html__( 'Leave a Reply to %s', 'trotzky22' ),
+			'cancel_reply_link'    => esc_html__( 'Cancel reply', 'trotzky22' ),
+			'label_submit'         => esc_html__( 'Post Comment', 'trotzky22' ),
 			'submit_button'        => '<input type="submit" id="%2$s" name="%1$s" class="%3$s" value="%4$s" />',
 			'submit_field'         => '<div class="form-submit">%1$s %2$s</div>',
 			'format'               => 'html5',
@@ -446,7 +446,7 @@ if ( ! function_exists( 'a_wordpress_theme_comment' ) ) :
 
 		return $defaults;
 	}
-	add_filter( 'comment_form_defaults', 'a_wordpress_theme_custom_commentform' );
+	add_filter( 'comment_form_defaults', 'trotzky22_custom_commentform' );
 
 endif;
 
@@ -482,7 +482,7 @@ if ( is_readable( $custom_walker_footer ) ) {
  *
  * @since v1.0
  */
-function a_wordpress_theme_scripts_loader() {
+function trotzky22_scripts_loader() {
 	$theme_version = wp_get_theme()->get( 'Version' );
 
 	// 1. Styles.
@@ -500,4 +500,4 @@ function a_wordpress_theme_scripts_loader() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
-add_action( 'wp_enqueue_scripts', 'a_wordpress_theme_scripts_loader' );
+add_action( 'wp_enqueue_scripts', 'trotzky22_scripts_loader' );

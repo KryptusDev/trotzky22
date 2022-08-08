@@ -18,7 +18,7 @@ if ( post_password_required() ) {
 	?>
 		<h2 id="comments-title">
 			<?php
-				esc_html_e( 'No Comments yet!', 'a-wordpress-theme' );
+				esc_html_e( 'No Comments yet!', 'trotzky22' );
 			?>
 		</h2>
 	<?php
@@ -30,7 +30,7 @@ if ( post_password_required() ) {
 			<?php
 				$comments_number = get_comments_number();
 				if ( '1' === $comments_number ) {
-					printf( _x( 'One Reply to &ldquo;%s&rdquo;', 'comments title', 'a-wordpress-theme' ), get_the_title() );
+					printf( _x( 'One Reply to &ldquo;%s&rdquo;', 'comments title', 'trotzky22' ), get_the_title() );
 				} else {
 					printf(
 						/* translators: 1: number of comments, 2: post title */
@@ -39,7 +39,7 @@ if ( post_password_required() ) {
 							'%1$s Replies to &ldquo;%2$s&rdquo;',
 							$comments_number,
 							'comments title',
-							'a-wordpress-theme'
+							'trotzky22'
 						),
 						number_format_i18n( $comments_number ),
 						get_the_title()
@@ -51,9 +51,9 @@ if ( post_password_required() ) {
 			if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) :
 		?>
 		<nav id="comment-nav-above">
-			<h1 class="assistive-text"><?php esc_html_e( 'Comment navigation', 'a-wordpress-theme' ); ?></h1>
-			<div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments', 'a-wordpress-theme' ) ); ?></div>
-			<div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;', 'a-wordpress-theme' ) ); ?></div>
+			<h1 class="assistive-text"><?php esc_html_e( 'Comment navigation', 'trotzky22' ); ?></h1>
+			<div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments', 'trotzky22' ) ); ?></div>
+			<div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;', 'trotzky22' ) ); ?></div>
 		</nav>
 		<?php
 			endif;
@@ -67,16 +67,16 @@ if ( post_password_required() ) {
 				 * define theme_comment() and that will be used instead.
 				 * See theme_comment() in my-theme/functions.php for more.
 				 */
-				wp_list_comments( array( 'callback' => 'a_wordpress_theme_comment' ) );
+				wp_list_comments( array( 'callback' => 'trotzky22_comment' ) );
 			?>
 		</ol>
 		<?php
 			if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) :
 		?>
 		<nav id="comment-nav-below">
-			<h1 class="assistive-text"><?php esc_html_e( 'Comment navigation', 'a-wordpress-theme' ); ?></h1>
-			<div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments', 'a-wordpress-theme' ) ); ?></div>
-			<div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;', 'a-wordpress-theme' ) ); ?></div>
+			<h1 class="assistive-text"><?php esc_html_e( 'Comment navigation', 'trotzky22' ); ?></h1>
+			<div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments', 'trotzky22' ) ); ?></div>
+			<div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;', 'trotzky22' ) ); ?></div>
 		</nav>
 		<?php
 			endif;
@@ -87,7 +87,7 @@ if ( post_password_required() ) {
 		 */
 		elseif ( ! comments_open() && ! is_page() && post_type_supports( get_post_type(), 'comments' ) ) :
 	?>
-		<h2 id="comments-title" class="nocomments"><?php esc_html_e( 'Comments are closed.', 'a-wordpress-theme' ); ?></h2>
+		<h2 id="comments-title" class="nocomments"><?php esc_html_e( 'Comments are closed.', 'trotzky22' ); ?></h2>
 	<?php
 		endif;
 

@@ -12,14 +12,14 @@ defined( 'ABSPATH' ) || exit;
  *
  * "sanitize_callback": https://codex.wordpress.org/Data_Validation
  */
-function a_wordpress_theme_customize( $wp_customize ) {
+function trotzky22_customize( $wp_customize ) {
 	/**
 	 * Initialize sections
 	 */
 	$wp_customize->add_section(
 		'theme_header_section',
 		array(
-			'title'    => __( 'Header', 'a-wordpress-theme' ),
+			'title'    => __( 'Header', 'trotzky22' ),
 			'priority' => 1000,
 		)
 	);
@@ -40,8 +40,8 @@ function a_wordpress_theme_customize( $wp_customize ) {
 			$wp_customize,
 			'header_logo',
 			array(
-				'label'       => __( 'Upload Header Logo', 'a-wordpress-theme' ),
-				'description' => __( 'Height: &gt;80px', 'a-wordpress-theme' ),
+				'label'       => __( 'Upload Header Logo', 'trotzky22' ),
+				'description' => __( 'Height: &gt;80px', 'trotzky22' ),
 				'section'     => 'theme_header_section',
 				'settings'    => 'header_logo',
 				'priority'    => 1,
@@ -61,12 +61,12 @@ function a_wordpress_theme_customize( $wp_customize ) {
 		'navbar_scheme',
 		array(
 			'type'     => 'radio',
-			'label'    => __( 'Navbar Scheme', 'a-wordpress-theme' ),
+			'label'    => __( 'Navbar Scheme', 'trotzky22' ),
 			'section'  => 'theme_header_section',
 			'choices'  => array(
-				'navbar-light bg-light'  => __( 'Default', 'a-wordpress-theme' ),
-				'navbar-dark bg-dark'    => __( 'Dark', 'a-wordpress-theme' ),
-				'navbar-dark bg-primary' => __( 'Primary', 'a-wordpress-theme' ),
+				'navbar-dark bg-revo-red'  => __( 'Red', 'trotzky22' ),
+				'navbar-dark bg-dark'    => __( 'Dark', 'trotzky22' ),
+				'navbar-dark bg-primary' => __( 'Primary', 'trotzky22' ),
 			),
 			'settings' => 'navbar_scheme',
 			'priority' => 1,
@@ -85,12 +85,12 @@ function a_wordpress_theme_customize( $wp_customize ) {
 		'navbar_position',
 		array(
 			'type'     => 'radio',
-			'label'    => __( 'Navbar', 'a-wordpress-theme' ),
+			'label'    => __( 'Navbar', 'trotzky22' ),
 			'section'  => 'theme_header_section',
 			'choices'  => array(
-				'static'       => __( 'Static', 'a-wordpress-theme' ),
-				'fixed_top'    => __( 'Fixed to top', 'a-wordpress-theme' ),
-				'fixed_bottom' => __( 'Fixed to bottom', 'a-wordpress-theme' ),
+				'static'       => __( 'Static', 'trotzky22' ),
+				'fixed_top'    => __( 'Fixed to top', 'trotzky22' ),
+				'fixed_bottom' => __( 'Fixed to bottom', 'trotzky22' ),
 			),
 			'settings' => 'navbar_position',
 			'priority' => 2,
@@ -109,20 +109,20 @@ function a_wordpress_theme_customize( $wp_customize ) {
 		'search_enabled',
 		array(
 			'type'     => 'checkbox',
-			'label'    => __( 'Show Searchfield?', 'a-wordpress-theme' ),
+			'label'    => __( 'Show Searchfield?', 'trotzky22' ),
 			'section'  => 'theme_header_section',
 			'settings' => 'search_enabled',
 			'priority' => 3,
 		)
 	);
 }
-add_action( 'customize_register', 'a_wordpress_theme_customize' );
+add_action( 'customize_register', 'trotzky22_customize' );
 
 
 /**
  * Bind JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
-function a_wordpress_theme_customize_preview_js() {
+function trotzky22_customize_preview_js() {
 	wp_enqueue_script( 'customizer', get_template_directory_uri() . '/inc/customizer.js', array( 'jquery' ), null, true );
 }
-add_action( 'customize_preview_init', 'a_wordpress_theme_customize_preview_js' );
+add_action( 'customize_preview_init', 'trotzky22_customize_preview_js' );

@@ -11,13 +11,13 @@ if ( have_posts() ) :
 	<h1 class="page-title">
 		<?php
 			if ( is_day() ) :
-				printf( esc_html__( 'Daily Archives: %s', 'a-wordpress-theme' ), get_the_date() );
+				printf( esc_html__( 'Daily Archives: %s', 'trotzky22' ), get_the_date() );
 			elseif ( is_month() ) :
-				printf( esc_html__( 'Monthly Archives: %s', 'a-wordpress-theme' ), get_the_date( _x( 'F Y', 'monthly archives date format', 'a-wordpress-theme' ) ) );
+				printf( esc_html__( 'Monthly Archives: %s', 'trotzky22' ), get_the_date( _x( 'F Y', 'monthly archives date format', 'trotzky22' ) ) );
 			elseif ( is_year() ) :
-				printf( esc_html__( 'Yearly Archives: %s', 'a-wordpress-theme' ), get_the_date( _x( 'Y', 'yearly archives date format', 'a-wordpress-theme' ) ) );
+				printf( esc_html__( 'Yearly Archives: %s', 'trotzky22' ), get_the_date( _x( 'Y', 'yearly archives date format', 'trotzky22' ) ) );
 			else :
-				esc_html_e( 'Blog Archives', 'a-wordpress-theme' );
+				esc_html_e( 'Blog Archives', 'trotzky22' );
 			endif;
 		?>
 	</h1>

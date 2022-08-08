@@ -17,7 +17,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-6">
-						<p><?php printf( esc_html__( '&copy; %1$s %2$s. All rights reserved.', 'a-wordpress-theme' ), date_i18n( 'Y' ), get_bloginfo( 'name', 'display' ) ); ?></p>
+						<p><?php printf( esc_html__( '&copy; %1$s %2$s. All rights reserved.', 'trotzky22' ), date_i18n( 'Y' ), get_bloginfo( 'name', 'display' ) ); ?></p>
 					</div>
 
 					<?php
@@ -48,7 +48,7 @@
 
 								if ( current_user_can( 'manage_options' ) ) :
 							?>
-								<span class="edit-link"><a href="<?php echo esc_url( admin_url( 'widgets.php' ) ); ?>" class="badge badge-secondary"><?php esc_html_e( 'Edit', 'a-wordpress-theme' ); ?></a></span><!-- Show Edit Widget link -->
+								<span class="edit-link"><a href="<?php echo esc_url( admin_url( 'widgets.php' ) ); ?>" class="badge badge-secondary"><?php esc_html_e( 'Edit', 'trotzky22' ); ?></a></span><!-- Show Edit Widget link -->
 							<?php
 								endif;
 							?>

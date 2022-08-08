@@ -14,7 +14,7 @@ $page_id = get_option( 'page_for_posts' );
 		<?php
 			echo apply_filters( 'the_content', get_post_field( 'post_content', $page_id ) );
 
-			edit_post_link( __( 'Edit', 'a-wordpress-theme' ), '<span class="edit-link">', '</span>', $page_id );
+			edit_post_link( __( 'Edit', 'trotzky22' ), '<span class="edit-link">', '</span>', $page_id );
 		?>
 	</div><!-- /.col -->
 	<div class="col-md-12">

@@ -3,7 +3,7 @@
  * The template for displaying the archive loop.
  */
 
-a_wordpress_theme_content_nav( 'nav-above' );
+trotzky22_content_nav( 'nav-above' );
 
 if ( have_posts() ) :
 ?>
@@ -26,4 +26,4 @@ endif;
 
 wp_reset_postdata();
 
-a_wordpress_theme_content_nav( 'nav-below' );
+trotzky22_content_nav( 'nav-below' );

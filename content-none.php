@@ -7,10 +7,10 @@ $search_enabled = get_theme_mod( 'search_enabled', '1' ); // Get custom meta-val
 ?>
 <article id="post-0" class="post no-results not-found">
 	<header class="entry-header">
-		<h1 class="entry-title"><?php esc_html_e( 'Nothing Found', 'a-wordpress-theme' ); ?></h1>
+		<h1 class="entry-title"><?php esc_html_e( 'Nothing Found', 'trotzky22' ); ?></h1>
 	</header><!-- /.entry-header -->
 	<div class="entry-content">
-		<p><?php esc_html_e( 'Apologies, but no results were found for the requested archive.', 'a-wordpress-theme' ); ?></p>
+		<p><?php esc_html_e( 'Apologies, but no results were found for the requested archive.', 'trotzky22' ); ?></p>
 		<?php
 			if ( '1' === $search_enabled ) :
 				get_search_form();

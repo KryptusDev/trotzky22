@@ -205,7 +205,7 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
 					$output .= '<' . esc_attr( $container ) . ( $container_id ? ' id="' . esc_attr( $container_id ) . '"' : '' ) . ( $container_class ? ' class="' . esc_attr( $container_class ) . '"' : '' ) . '>';
 				}
 				$output .= '<ul' . ( $menu_id ? ' id="' . esc_attr( $menu_id ) . '"' : '' ) . ( $menu_class ? ' class="' . esc_attr( $menu_class ) . '"' : '' ) . '>';
-					$output .= '<li><a href="' . esc_url( admin_url( 'nav-menus.php' ) ) . '" title="">' . esc_html__( 'Add a menu', 'a-wordpress-theme' ) . '</a></li>';
+					$output .= '<li><a href="' . esc_url( admin_url( 'nav-menus.php' ) ) . '" title="">' . esc_html__( 'Add a menu', 'trotzky22' ) . '</a></li>';
 				$output .= '</ul>';
 				if ( $container ) {
 					$output .= '</' . esc_attr( $container ) . '>';

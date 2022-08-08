@@ -8,18 +8,18 @@
 	<div class="card mb-4">
 		<header class="card-body">
 			<h2 class="card-title">
-				<a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'a-wordpress-theme' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php the_title(); ?></a>
+				<a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'trotzky22' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php the_title(); ?></a>
 			</h2>
 			<?php
 				if ( 'post' === get_post_type() ) :
 			?>
 				<div class="card-text entry-meta">
 					<?php
-						a_wordpress_theme_article_posted_on();
+						trotzky22_article_posted_on();
 
 						$num_comments = get_comments_number();
 						if ( comments_open() && $num_comments >= 1 ) :
-							echo ' <a href="' . get_comments_link() . '" class="badge badge-pill badge-secondary float-end" title="' . esc_attr( sprintf( _n( '%s Comment', '%s Comments', $num_comments, 'a-wordpress-theme' ), $num_comments ) ) . '">' . $num_comments . '</a>';
+							echo ' <a href="' . get_comments_link() . '" class="badge badge-pill badge-secondary float-end" title="' . esc_attr( sprintf( _n( '%s Comment', '%s Comments', $num_comments, 'trotzky22' ), $num_comments ) ) . '">' . $num_comments . '</a>';
 						endif;
 					?>
 				</div><!-- /.entry-meta -->
@@ -40,10 +40,10 @@
 						the_content();
 					endif;
 				?>
-				<?php wp_link_pages( array( 'before' => '<div class="page-link"><span>' . esc_html__( 'Pages:', 'a-wordpress-theme' ) . '</span>', 'after' => '</div>' ) ); ?>
+				<?php wp_link_pages( array( 'before' => '<div class="page-link"><span>' . esc_html__( 'Pages:', 'trotzky22' ) . '</span>', 'after' => '</div>' ) ); ?>
 			</div><!-- /.card-text -->
 			<footer class="entry-meta">
-				<a href="<?php echo get_the_permalink(); ?>" class="btn btn-outline-secondary"><?php esc_html_e( 'more', 'a-wordpress-theme' ); ?></a>
+				<a href="<?php echo get_the_permalink(); ?>" class="btn btn-outline-secondary"><?php esc_html_e( 'more', 'trotzky22' ); ?></a>
 			</footer><!-- /.entry-meta -->
 		</div><!-- /.card-body -->
 	</div><!-- /.col -->

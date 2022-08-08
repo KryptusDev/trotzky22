@@ -18,11 +18,11 @@ the_post();
 
 				wp_link_pages(
 					array(
-						'before' => '<div class="page-links">' . __( 'Pages:', 'a-wordpress-theme' ),
+						'before' => '<div class="page-links">' . __( 'Pages:', 'trotzky22' ),
 						'after'  => '</div>',
 					)
 				);
-				edit_post_link( esc_html__( 'Edit', 'a-wordpress-theme' ), '<span class="edit-link">', '</span>' );
+				edit_post_link( esc_html__( 'Edit', 'trotzky22' ), '<span class="edit-link">', '</span>' );
 			?>
 		</div><!-- /#post-<?php the_ID(); ?> -->
 		<?php
