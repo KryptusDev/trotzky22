@@ -69,8 +69,8 @@ $search_enabled  = get_theme_mod('search_enabled', '1'); // Get custom meta-valu
 									<button type="submit" name="submit" class="btn btn-outline-secondary"><?php esc_html_e('Search', 'trotzky22'); ?></button>
 								</div>
 							</form> -->
-							<button class="btn" type="button" data-toggle="collapse" data-target="#navbarSearchExternal" aria-controls="navbarSearchExternal" aria-expanded="false" aria-label="Toggle navigation">
-								<i class="bi bi-search"></i>	
+							<button class="btn btn-revo-red	" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSearchExternal" aria-controls="navbarSearchExternal" aria-expanded="false" aria-label="Toggle search field">
+								<i class="bi bi-search"></i>
 							</button>
 						<?php
 						endif;
@@ -78,6 +78,12 @@ $search_enabled  = get_theme_mod('search_enabled', '1'); // Get custom meta-valu
 					</div><!-- /.navbar-collapse -->
 				</div><!-- /.container -->
 			</nav><!-- /#header -->
+			<div class="collapse spy-3 border-top bg-revo-red" id="navbarSearchExternal">
+				<form class="form-inline d-flex flex-column flex-sm-row justify-content-end gap-2 p-3" method="get" action="<?php echo esc_url(home_url('/')); ?>">
+					<input class="form-control" type="search" placeholder="Search" aria-label="Search" name="s">
+					<button class="btn btn-outline-light type="submit">Search</button>
+				</form>
+			</div>
 		</header>
 
 		<main id="main" class="container" <?php if (isset($navbar_position) && 'fixed_top' === $navbar_position) : echo ' style="padding-top: 100px;"';
