@@ -1,0 +1,10 @@
+
+/* COLORS */
+
+$red: #A50000;
+
+$custom-colors: (
+    "revo-red": $red,
+);
+
+$theme-colors: map-merge($theme-colors, $custom-colors);
