@@ -1,17 +1,17 @@
-const path = require( 'path' ),
-	webpack = require( 'webpack' );
+const path = require("path"),
+  webpack = require("webpack");
 
 module.exports = {
-	context: path.resolve( __dirname, 'assets' ),
-	entry: {
-		main: [ './main.js' ],
-	},
-	output: {
-		path: path.resolve( __dirname, 'assets/js' ),
-		filename: '[name].bundle.js',
-	},
-	// Uncomment if jQuery support is needed
-	/*externals: {
+  context: path.resolve(__dirname, "assets"),
+  entry: {
+    main: ["./main.js"],
+  },
+  output: {
+    path: path.resolve(__dirname, "assets/js"),
+    filename: "[name].bundle.js",
+  },
+  // Uncomment if jQuery support is needed
+  /*externals: {
 		jquery: 'jQuery'
 	},
 	plugins: [
@@ -21,6 +21,6 @@ module.exports = {
 			'window.jQuery': 'jquery',
 		} ),
 	],*/
-	devtool: 'source-map',
-	watch: true,
+  devtool: "source-map",
+  watch: true,
 };

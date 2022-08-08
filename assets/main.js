@@ -1,7 +1,6 @@
 // Webpack Imports
 import * as bootstrap from 'bootstrap';
 
-
 ( function () {
 	'use strict';
 

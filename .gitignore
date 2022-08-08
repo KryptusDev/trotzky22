@@ -1,2 +1,6 @@
 .vscode/
 node_modules/
+
+assets/bootstrap-icons/*
+assets/css/*
+assets/js/*
