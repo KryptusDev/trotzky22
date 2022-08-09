@@ -501,3 +501,10 @@ function trotzky22_scripts_loader() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'trotzky22_scripts_loader' );
+
+
+function trotzky22_hero_block_register() {
+	$theme_version = wp_get_theme()->get( 'Version' );
+	wp_enqueue_script( 'trotzky22-hero-block', get_theme_file_uri( 'assets/js/blocks.bundle.js' ), array('wp-blocks', 'wp-i18n', 'wp-editor'), $theme_version, true );
+}
+add_action( 'enqueue_block_editor_assets', 'trotzky22_hero_block_register');
