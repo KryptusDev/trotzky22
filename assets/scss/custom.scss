@@ -1,0 +1,35 @@
+.has-light-color {
+    color: $gray-100;
+}
+
+@for $i from 1 to 10 {
+    .list-group-item.depth-#{$i} {
+        padding-left: calc($list-group-item-padding-x + $spacer * $i / 2);
+    }
+}
+
+.sidebar-nav-container {
+    margin-top: 2rem;
+    top: 140px;
+}
+
+.sticky-top {
+    position: sticky !important;
+}
+
+#navbar-scroll-nav {
+    ul {
+        li {
+            display: flex;
+            a {
+                text-align: center;
+                margin-top: auto;
+                margin-bottom: auto;
+            }
+        }
+    }
+}
+
+a.list-group-item:hover {
+    color: #A50000;
+}

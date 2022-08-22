@@ -2,13 +2,13 @@
 				// If Single or Archive (Category, Tag, Author or a Date based page).
 				if ( is_single() || is_archive() ) :
 			?>
-					</div><!-- /.col -->
+					<!-- </div> --><!-- /.col -->
 
 					<?php
-						get_sidebar();
+						//get_sidebar();
 					?>
 
-				</div><!-- /.row -->
+				<!-- </div> --><!-- /.row -->
 			<?php
 				endif;
 			?>

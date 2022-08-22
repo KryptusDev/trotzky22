@@ -5,6 +5,7 @@ $red: #A50000;
 
 $custom-colors: (
     "revo-red": $red,
+    "secondary": $gray-300,
 );
 
 $theme-colors: map-merge($theme-colors, $custom-colors);

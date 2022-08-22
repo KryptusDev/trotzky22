@@ -10,7 +10,7 @@ const gulp = require("gulp"),
 
 var paths = {
   styles: {
-    src: ["./assets/*.scss", "./assets/scss/*.scss"],
+    src: "./assets/*.scss",
     dest: "./assets/css",
   },
   scripts: {
@@ -98,7 +98,7 @@ gulp.task(
     });
 
     gulp.watch(paths.scripts.src, build_js);
-    gulp.watch(paths.styles.src, build_css);
+    gulp.watch([paths.styles.src, "./assets/scss/*.scss", "./assets/scss/modules/*.scss"], build_css);
     gulp.watch("**/*.php", reload_php);
   })
 );
